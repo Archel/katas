@@ -127,6 +127,19 @@ public class GildedRoseShould {
         assertThat(item.sellIn, is(0));
     }
 
+    @Test
+    public void
+    increase_the_quality_by_three_if_the_sellIn_is_below_five() {
+        Item item = aBackstagePasses()
+                .withQuality(0)
+                .withSellIn(5)
+                .build();
+
+        updateQualityOf(item);
+
+        assertThat(item.quality, is(3));
+    }
+
     private void updateQualityOf(Item item) {
         GildedRose gildedRose = new GildedRose(new Item[]{item});
         gildedRose.updateQuality();
