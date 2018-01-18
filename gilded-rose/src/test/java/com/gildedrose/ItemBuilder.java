@@ -22,6 +22,10 @@ public class ItemBuilder {
         return new ItemBuilder("Aged Brie");
     }
 
+    public static ItemBuilder aBackstagePasses() {
+        return new ItemBuilder("Backstage passes to a TAFKAL80ETC concert");
+    }
+
     public ItemBuilder withQuality(int quality) {
         this.quality = quality;
         return this;

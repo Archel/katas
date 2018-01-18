@@ -2,13 +2,25 @@ package com.gildedrose;
 
 import org.junit.Test;
 
-import static com.gildedrose.ItemBuilder.aLegendaryItem;
-import static com.gildedrose.ItemBuilder.aNormalItem;
-import static com.gildedrose.ItemBuilder.anAgedBrie;
+import static com.gildedrose.ItemBuilder.*;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 public class GildedRoseShould {
+
+    @Test
+    public void
+    decrease_the_sell_in_of_the_normal_item() {
+        Item item = aNormalItem()
+                .withQuality(4)
+                .withSellIn(1)
+                .build();
+
+        updateQualityOf(item);
+
+        assertThat(item.sellIn, is(0));
+    }
+
     @Test
     public void
     decease_the_quality_for_the_normal_items_with_quality_and_sell_in_higher_than_zero() {
@@ -51,19 +63,6 @@ public class GildedRoseShould {
 
     @Test
     public void
-    decrease_the_sell_in_of_the_normal_item() {
-        Item item = aNormalItem()
-                .withQuality(4)
-                .withSellIn(1)
-                .build();
-
-        updateQualityOf(item);
-
-        assertThat(item.sellIn, is(0));
-    }
-
-    @Test
-    public void
     don_t_increase_of_decrease_the_sell_in_or_quality_of_legendary_item() {
         Item item = aLegendaryItem()
                         .withQuality(1)
@@ -74,6 +73,19 @@ public class GildedRoseShould {
 
         assertThat(item.sellIn, is(1));
         assertThat(item.quality, is(1));
+    }
+
+    @Test
+    public void
+    decrease_the_sell_in_of_aged_brie_item() {
+        Item item = anAgedBrie()
+                .withQuality(1)
+                .withSellIn(2)
+                .build();
+
+        updateQualityOf(item);
+
+        assertThat(item.sellIn, is(1));
     }
 
     @Test
@@ -104,15 +116,15 @@ public class GildedRoseShould {
 
     @Test
     public void
-    decrease_the_sell_in_of_aged_brie_item() {
-        Item item = anAgedBrie()
-                .withQuality(1)
-                .withSellIn(2)
-                .build();
+    decrease_the_sell_in_of_backstage_passes_item() {
+        Item item = aBackstagePasses()
+                        .withQuality(0)
+                        .withSellIn(1)
+                        .build();
 
         updateQualityOf(item);
 
-        assertThat(item.sellIn, is(1));
+        assertThat(item.sellIn, is(0));
     }
 
     private void updateQualityOf(Item item) {
