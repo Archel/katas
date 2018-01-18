@@ -1,5 +1,6 @@
 package com.gildedrose;
 
+import com.gildedrose.domain.item.BackstagePassesItem;
 import com.gildedrose.domain.item.CommonItem;
 import com.gildedrose.domain.item.ConjuredItem;
 
@@ -28,19 +29,9 @@ class GildedRose {
                     }
                     break;
                 case "Backstage passes to a TAFKAL80ETC concert":
-                    increaseQuality(item);
-
-                    if (item.sellIn < 10) {
-                        increaseQuality(item);
-                    }
-
-                    if (item.sellIn < 5) {
-                        increaseQuality(item);
-                    }
-
-                    if (item.sellIn < 0) {
-                        item.quality = 0;
-                    }
+                    BackstagePassesItem backstagePassesItem = new BackstagePassesItem(item.name, item.sellIn, item.quality);
+                    backstagePassesItem.updateQuality();
+                    items[i] = backstagePassesItem;
                     break;
                 case "Conjured Mana Cake":
                     ConjuredItem conjuredItem = new ConjuredItem(item.name, item.sellIn, item.quality);
@@ -58,12 +49,6 @@ class GildedRose {
 
     private void decreaseSellIn(Item item) {
         item.sellIn -= 1;
-    }
-
-    private void decreaseQuality(Item item) {
-        if (item.quality > 0) {
-            item.quality -= 1;
-        }
     }
 
     private void increaseQuality(Item item) {

@@ -23,7 +23,7 @@ public class GildedRoseAcceptance {
 
         TexttestFixture.main(args);
 
-        assertThat(byteArrayOutputStream.toString(), is(loadGameResultFromFile(DAYS)));
+        assertThat(byteArrayOutputStream.toString(), is(loadResultFromFile(DAYS)));
     }
 
     private ByteArrayOutputStream redirectOutputToInMemory() {
@@ -33,11 +33,11 @@ public class GildedRoseAcceptance {
         return byteArrayOutputStream;
     }
 
-    private String loadGameResultFromFile(int days) {
-        String gameResultFile = String.format("result-days-%d.txt", days);
-        System.out.print(gameResultFile);
+    private String loadResultFromFile(int days) {
+        String resultFile = String.format("result-days-%d.txt", days);
+        System.out.print(resultFile);
         try {
-            return IOUtils.toString(this.getClass().getResourceAsStream(gameResultFile), "UTF-8");
+            return IOUtils.toString(this.getClass().getResourceAsStream(resultFile), "UTF-8");
         } catch (IOException e) {
             return "";
         }

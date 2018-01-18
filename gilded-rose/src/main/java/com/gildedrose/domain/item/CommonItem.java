@@ -20,4 +20,10 @@ public class CommonItem extends Item {
             quality -= 1;
         }
     }
+
+    protected void increaseQuality() {
+        if (quality < 50) {
+            quality += 1;
+        }
+    }
 }
