@@ -1,5 +1,6 @@
 package com.gildedrose;
 
+import com.gildedrose.domain.item.AgedBrieItem;
 import com.gildedrose.domain.item.BackstagePassesItem;
 import com.gildedrose.domain.item.CommonItem;
 import com.gildedrose.domain.item.ConjuredItem;
@@ -22,11 +23,9 @@ class GildedRose {
 
             switch (item.name) {
                 case "Aged Brie":
-                    increaseQuality(item);
-
-                    if (item.sellIn < 0) {
-                        increaseQuality(item);
-                    }
+                    AgedBrieItem agedBrieItem = new AgedBrieItem(item.name, item.sellIn, item.quality);
+                    agedBrieItem.updateQuality();
+                    items[i] = agedBrieItem;
                     break;
                 case "Backstage passes to a TAFKAL80ETC concert":
                     BackstagePassesItem backstagePassesItem = new BackstagePassesItem(item.name, item.sellIn, item.quality);
