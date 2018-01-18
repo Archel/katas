@@ -21,21 +21,15 @@ class GildedRose {
                     }
                 }
             } else {
-                if (item.quality < 50) {
-                    item.quality += 1;
+                increaseQuality(item);
 
-                    if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                        if (item.sellIn < 10) {
-                            if (item.quality < 50) {
-                                item.quality += 1;
-                            }
-                        }
+                if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+                    if (item.sellIn < 10) {
+                        increaseQuality(item);
+                    }
 
-                        if (item.sellIn < 5) {
-                            if (item.quality < 50) {
-                                item.quality += 1;
-                            }
-                        }
+                    if (item.sellIn < 5) {
+                        increaseQuality(item);
                     }
                 }
             }
@@ -53,11 +47,15 @@ class GildedRose {
                         item.quality -= item.quality;
                     }
                 } else {
-                    if (item.quality < 50) {
-                        item.quality += 1;
-                    }
+                    increaseQuality(item);
                 }
             }
+        }
+    }
+
+    private void increaseQuality(Item item) {
+        if (item.quality < 50) {
+            item.quality += 1;
         }
     }
 }
