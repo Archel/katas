@@ -26,4 +26,8 @@ public class CommonItem extends Item {
             quality += 1;
         }
     }
+
+    public void decreaseSellIn() {
+        sellIn -= 1;
+    }
 }

@@ -19,40 +19,32 @@ class GildedRose {
                 continue;
             }
 
-            decreaseSellIn(item);
-
             switch (item.name) {
                 case "Aged Brie":
                     AgedBrieItem agedBrieItem = new AgedBrieItem(item.name, item.sellIn, item.quality);
+                    agedBrieItem.decreaseSellIn();
                     agedBrieItem.updateQuality();
                     items[i] = agedBrieItem;
                     break;
                 case "Backstage passes to a TAFKAL80ETC concert":
                     BackstagePassesItem backstagePassesItem = new BackstagePassesItem(item.name, item.sellIn, item.quality);
+                    backstagePassesItem.decreaseSellIn();
                     backstagePassesItem.updateQuality();
                     items[i] = backstagePassesItem;
                     break;
                 case "Conjured Mana Cake":
                     ConjuredItem conjuredItem = new ConjuredItem(item.name, item.sellIn, item.quality);
+                    conjuredItem.decreaseSellIn();
                     conjuredItem.updateQuality();
                     items[i] = conjuredItem;
                     break;
                 default:
                     CommonItem commonItem = new CommonItem(item.name, item.sellIn, item.quality);
+                    commonItem.decreaseSellIn();
                     commonItem.updateQuality();
                     items[i] = commonItem;
                     break;
             }
-        }
-    }
-
-    private void decreaseSellIn(Item item) {
-        item.sellIn -= 1;
-    }
-
-    private void increaseQuality(Item item) {
-        if (item.quality < 50) {
-            item.quality += 1;
         }
     }
 }
