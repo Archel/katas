@@ -11,7 +11,7 @@ import java.io.PrintStream;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-public class GildedRoseTest {
+public class GildedRoseAcceptance {
 
     private static final int DAYS = 30;
 
