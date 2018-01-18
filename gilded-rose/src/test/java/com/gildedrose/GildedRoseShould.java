@@ -47,6 +47,19 @@ public class GildedRoseShould {
         assertThat(item.quality, is(2));
     }
 
+    @Test
+    public void
+    decrease_the_sell_in_of_the_normal_item() {
+        Item item = aNormalItem()
+                .withQuality(4)
+                .withSellIn(1)
+                .build();
+
+        updateQualityOf(item);
+
+        assertThat(item.sellIn, is(0));
+    }
+
     private void updateQualityOf(Item item) {
         GildedRose gildedRose = new GildedRose(new Item[]{item});
         gildedRose.updateQuality();
