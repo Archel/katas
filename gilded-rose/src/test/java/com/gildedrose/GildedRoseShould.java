@@ -50,10 +50,10 @@ public class GildedRoseShould {
 
     @Test
     public void
-    decrease_the_quality_twice_if_the_normal_item_sell_int_is_lower_than_zero() {
+    decrease_the_quality_twice_if_the_normal_item_sell_int_is_below_than_zero() {
         Item item = aNormalItem()
                 .withQuality(4)
-                .withSellIn(-1)
+                .withSellIn(0)
                 .build();
 
         updateQualityOf(item);
@@ -77,7 +77,7 @@ public class GildedRoseShould {
 
     @Test
     public void
-    decrease_the_sell_in_of_aged_brie_item() {
+    decrease_the_sell_in_of_aged_brie() {
         Item item = anAgedBrie()
                 .withQuality(1)
                 .withSellIn(2)
@@ -90,7 +90,7 @@ public class GildedRoseShould {
 
     @Test
     public void
-    increase_the_quality_of_the_aged_brie_item() {
+    increase_the_quality_of_the_aged_brie() {
         Item item = anAgedBrie()
                         .withSellIn(1)
                         .withQuality(1)
@@ -103,7 +103,7 @@ public class GildedRoseShould {
 
     @Test
     public void
-    increase_twice_the_quality_of_the_aged_brie_item_if_the_sell_in_is_below_zero() {
+    increase_twice_the_quality_of_the_aged_brie_if_the_sell_in_is_below_zero() {
         Item item = anAgedBrie()
                         .withQuality(1)
                         .withSellIn(0)
@@ -116,7 +116,7 @@ public class GildedRoseShould {
 
     @Test
     public void
-    decrease_the_sell_in_of_backstage_passes_item() {
+    decrease_the_sell_in_of_backstage_passes() {
         Item item = aBackstagePasses()
                         .withQuality(0)
                         .withSellIn(1)
@@ -129,7 +129,7 @@ public class GildedRoseShould {
 
     @Test
     public void
-    increase_the_quality_by_three_if_the_sellIn_is_below_five() {
+    increase_the_quality_of_backstage_passes_by_three_if_the_sell_in_is_below_five_but_higher_than_zero() {
         Item item = aBackstagePasses()
                 .withQuality(0)
                 .withSellIn(5)
@@ -138,6 +138,19 @@ public class GildedRoseShould {
         updateQualityOf(item);
 
         assertThat(item.quality, is(3));
+    }
+
+    @Test
+    public void
+    increase_the_quality_twice_of_backstage_passes_if_the_sell_in_is_between_five_and_ten() {
+        Item item = aBackstagePasses()
+                        .withQuality(8)
+                        .withSellIn(8)
+                        .build();
+
+        updateQualityOf(item);
+
+        assertThat(item.quality, is(10));
     }
 
     private void updateQualityOf(Item item) {
