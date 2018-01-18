@@ -1,38 +1,36 @@
 package com.gildedrose;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
-
 import org.apache.commons.io.IOUtils;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.PrintStream;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 public class GildedRoseTest {
 
-    @Test
-    public void foo() {
-        Item[] items = new Item[] { new Item("foo", 0, 0) };
-        GildedRose app = new GildedRose(items);
-        app.updateQuality();
-        assertEquals("fixme", app.items[0].name);
-    }
+    private static final int DAYS = 30;
 
     @Test
     public void
-    update_the_product_quality_of_given_days() {
-        String[] args = {"4"};
-
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        PrintStream printStream = new PrintStream(byteArrayOutputStream);
-        System.setOut(printStream);
+    update_the_items_quality_through_the_days() {
+        OutputStream byteArrayOutputStream = redirectOutputToInMemory();
+        String[] args = {String.valueOf(DAYS)};
 
         TexttestFixture.main(args);
 
-        System.out.flush();
-        assertThat(byteArrayOutputStream.toString(), is(loadGameResultFromFile(4)));
+        assertThat(byteArrayOutputStream.toString(), is(loadGameResultFromFile(DAYS)));
+    }
+
+    private ByteArrayOutputStream redirectOutputToInMemory() {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(byteArrayOutputStream);
+        System.setOut(printStream);
+        return byteArrayOutputStream;
     }
 
     private String loadGameResultFromFile(int days) {
