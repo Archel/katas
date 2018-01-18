@@ -153,6 +153,19 @@ public class GildedRoseShould {
         assertThat(item.quality, is(10));
     }
 
+    @Test
+    public void
+    set_the_quality_to_zero_of_backstage_passes_if_the_sell_in_is_below_zero() {
+        Item item = aBackstagePasses()
+                        .withQuality(8)
+                        .withSellIn(0)
+                        .build();
+
+        updateQualityOf(item);
+
+        assertThat(item.quality, is(0));
+    }
+
     private void updateQualityOf(Item item) {
         GildedRose gildedRose = new GildedRose(new Item[]{item});
         gildedRose.updateQuality();
