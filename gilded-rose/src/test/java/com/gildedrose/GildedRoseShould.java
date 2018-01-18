@@ -8,12 +8,34 @@ import static org.junit.Assert.assertThat;
 public class GildedRoseShould {
     @Test
     public void
-    decease_the_quality_for_the_normal_items_with_quality_and_sellin_higer_than_zero() {
+    decease_the_quality_for_the_normal_items_with_quality_and_sell_in_higher_than_zero() {
         Item item = new Item("normal", 1, 1);
         GildedRose gildedRose = new GildedRose(new Item[]{item});
 
         gildedRose.updateQuality();
 
         assertThat(item.quality, is(0));
+    }
+
+    @Test
+    public void
+    don_t_decrease_the_quality_for_the_normal_items_with_quality_zero() {
+        Item item = new Item("normal", 1, 0);
+        GildedRose gildedRose = new GildedRose(new Item[]{item});
+
+        gildedRose.updateQuality();
+
+        assertThat(item.quality, is(0));
+    }
+
+    @Test
+    public void
+    decrease_the_quality_twice_if_the_normal_item_sell_int_is_lower_than_zero() {
+        Item item = new Item("normal", -1, 4);
+        GildedRose gildedRose = new GildedRose(new Item[]{item});
+
+        gildedRose.updateQuality();
+
+        assertThat(item.quality, is(2));
     }
 }
