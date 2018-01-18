@@ -38,6 +38,10 @@ class GildedRose {
                         item.quality = 0;
                     }
                     break;
+                case "Conjured Mana Cake":
+                    decreaseQuality(item);
+                    decreaseQuality(item);
+                    break;
                 default:
                     decreaseQuality(item);
 

@@ -26,6 +26,10 @@ public class ItemBuilder {
         return new ItemBuilder("Backstage passes to a TAFKAL80ETC concert");
     }
 
+    public static ItemBuilder aConjuredItem() {
+        return new ItemBuilder("Conjured Mana Cake");
+    }
+
     public ItemBuilder withQuality(int quality) {
         this.quality = quality;
         return this;

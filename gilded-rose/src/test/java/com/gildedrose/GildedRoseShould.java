@@ -36,7 +36,7 @@ public class GildedRoseShould {
 
     @Test
     public void
-    don_t_decrease_the_quality_for_the_normal_items_with_quality_zero() {
+    don_t_decrease_the_quality_for_an_items_with_quality_zero() {
         Item item = aNormalItem()
                 .withQuality(0)
                 .withSellIn(1)
@@ -160,6 +160,32 @@ public class GildedRoseShould {
                         .withQuality(8)
                         .withSellIn(0)
                         .build();
+
+        updateQualityOf(item);
+
+        assertThat(item.quality, is(0));
+    }
+
+    @Test
+    public void
+    decrease_the_sell_in_of_conjured_items() {
+        Item item = aConjuredItem()
+                        .withQuality(0)
+                        .withSellIn(1)
+                        .build();
+
+        updateQualityOf(item);
+
+        assertThat(item.sellIn, is(0));
+    }
+
+    @Test
+    public void
+    decrease_twice_the_quality_of_conjured_item_if_the_sell_in_is_higher_than_zero() {
+        Item item = aConjuredItem()
+                .withQuality(2)
+                .withSellIn(1)
+                .build();
 
         updateQualityOf(item);
 
