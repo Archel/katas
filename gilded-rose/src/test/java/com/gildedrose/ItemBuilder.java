@@ -14,6 +14,14 @@ public class ItemBuilder {
         return new ItemBuilder("normal");
     }
 
+    public static ItemBuilder aLegendaryItem() {
+        return new ItemBuilder("Sulfuras, Hand of Ragnaros");
+    }
+
+    public static ItemBuilder anAgedBrie() {
+        return new ItemBuilder("Aged Brie");
+    }
+
     public ItemBuilder withQuality(int quality) {
         this.quality = quality;
         return this;
