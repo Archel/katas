@@ -90,6 +90,20 @@ public class GildedRoseShould {
 
     @Test
     public void
+    don_t_increase_the_quality_of_aged_brie_over_fifty() {
+        Item item = anAgedBrie()
+                        .withQuality(50)
+                        .withSellIn(1)
+                        .build();
+
+        updateQualityOf(item);
+
+        assertThat(item.quality, is(50));
+
+    }
+
+    @Test
+    public void
     increase_the_quality_of_the_aged_brie() {
         Item item = anAgedBrie()
                         .withSellIn(1)
@@ -125,6 +139,19 @@ public class GildedRoseShould {
         updateQualityOf(item);
 
         assertThat(item.sellIn, is(0));
+    }
+
+    @Test
+    public void
+    don_t_increase_the_quality_of_backstage_passes_over_fifty() {
+        Item item = aBackstagePasses()
+                        .withQuality(50)
+                        .withSellIn(8)
+                        .build();
+
+        updateQualityOf(item);
+
+        assertThat(item.quality, is(50));
     }
 
     @Test
