@@ -1,5 +1,7 @@
 package com.gildedrose;
 
+import com.gildedrose.domain.item.CommonItem;
+
 class GildedRose {
     Item[] items;
 
@@ -8,7 +10,8 @@ class GildedRose {
     }
 
     public void updateQuality() {
-        for (Item item : items) {
+        for (int i = 0; i < items.length; i++) {
+            Item item = items[i];
             if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
                 continue;
             }
@@ -48,11 +51,9 @@ class GildedRose {
                     }
                     break;
                 default:
-                    decreaseQuality(item);
-
-                    if (item.sellIn < 0) {
-                        decreaseQuality(item);
-                    }
+                    CommonItem commonItem = new CommonItem(item.name, item.sellIn, item.quality);
+                    commonItem.updateQuality();
+                    items[i] = commonItem;
                     break;
             }
         }

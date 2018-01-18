@@ -16,9 +16,9 @@ public class GildedRoseShould {
                 .withSellIn(1)
                 .build();
 
-        updateQualityOf(item);
+        Item updatedItem = updateQualityOf(item);
 
-        assertThat(item.sellIn, is(0));
+        assertThat(updatedItem.sellIn, is(0));
     }
 
     @Test
@@ -29,9 +29,9 @@ public class GildedRoseShould {
                         .withSellIn(1)
                         .build();
 
-        updateQualityOf(item);
+        Item updatedItem = updateQualityOf(item);
 
-        assertThat(item.quality, is(0));
+        assertThat(updatedItem.quality, is(0));
     }
 
     @Test
@@ -42,9 +42,9 @@ public class GildedRoseShould {
                 .withSellIn(1)
                 .build();
 
-        updateQualityOf(item);
+        Item updatedItem = updateQualityOf(item);
 
-        assertThat(item.quality, is(0));
+        assertThat(updatedItem.quality, is(0));
     }
 
 
@@ -56,9 +56,9 @@ public class GildedRoseShould {
                 .withSellIn(0)
                 .build();
 
-        updateQualityOf(item);
+        Item updatedItem = updateQualityOf(item);
 
-        assertThat(item.quality, is(2));
+        assertThat(updatedItem.quality, is(2));
     }
 
     @Test
@@ -232,8 +232,11 @@ public class GildedRoseShould {
         assertThat(item.quality, is(1));
     }
 
-    private void updateQualityOf(Item item) {
-        GildedRose gildedRose = new GildedRose(new Item[]{item});
+    private Item updateQualityOf(Item item) {
+        Item[] items = new Item[]{item};
+        GildedRose gildedRose = new GildedRose(items);
         gildedRose.updateQuality();
+
+        return items[0];
     }
 }
