@@ -219,6 +219,19 @@ public class GildedRoseShould {
         assertThat(item.quality, is(0));
     }
 
+    @Test
+    public void
+    decrease_the_quality_by_four_of_conjured_item_if_the_sell_in_is_below_zero() {
+        Item item = aConjuredItem()
+                .withQuality(5)
+                .withSellIn(0)
+                .build();
+
+        updateQualityOf(item);
+
+        assertThat(item.quality, is(1));
+    }
+
     private void updateQualityOf(Item item) {
         GildedRose gildedRose = new GildedRose(new Item[]{item});
         gildedRose.updateQuality();
