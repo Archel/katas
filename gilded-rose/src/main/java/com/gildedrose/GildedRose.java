@@ -13,7 +13,7 @@ class GildedRose {
                 continue;
             }
 
-            item.sellIn -= 1;
+            decreaseSellIn(item);
 
             if (!item.name.equals("Aged Brie")
                     && !item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
@@ -45,6 +45,10 @@ class GildedRose {
                 }
             }
         }
+    }
+
+    private void decreaseSellIn(Item item) {
+        item.sellIn -= 1;
     }
 
     private void decreaseQuality(Item item) {
