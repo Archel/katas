@@ -10,8 +10,8 @@ public class ItemBuilder {
         this.name = name;
     }
 
-    public static ItemBuilder aNormalItem() {
-        return new ItemBuilder("normal");
+    public static ItemBuilder aGenericItem() {
+        return new ItemBuilder("generic item");
     }
 
     public static ItemBuilder aLegendaryItem() {

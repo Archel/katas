@@ -10,8 +10,8 @@ public class GildedRoseShould {
 
     @Test
     public void
-    decrease_the_sell_in_of_the_normal_item() {
-        Item item = aNormalItem()
+    decrease_the_sell_in_of_the_generic_item() {
+        Item item = aGenericItem()
                 .withQuality(4)
                 .withSellIn(1)
                 .build();
@@ -23,8 +23,8 @@ public class GildedRoseShould {
 
     @Test
     public void
-    decease_the_quality_for_the_normal_items_with_quality_and_sell_in_higher_than_zero() {
-        Item item = aNormalItem()
+    decease_the_quality_for_the_generic_items_with_quality_and_sell_in_higher_than_zero() {
+        Item item = aGenericItem()
                         .withQuality(1)
                         .withSellIn(1)
                         .build();
@@ -37,7 +37,7 @@ public class GildedRoseShould {
     @Test
     public void
     don_t_decrease_the_quality_for_an_items_with_quality_zero() {
-        Item item = aNormalItem()
+        Item item = aGenericItem()
                 .withQuality(0)
                 .withSellIn(1)
                 .build();
@@ -50,8 +50,8 @@ public class GildedRoseShould {
 
     @Test
     public void
-    decrease_the_quality_twice_if_the_normal_item_sell_int_is_below_than_zero() {
-        Item item = aNormalItem()
+    decrease_the_quality_twice_if_the_generic_item_sell_int_is_below_than_zero() {
+        Item item = aGenericItem()
                 .withQuality(4)
                 .withSellIn(0)
                 .build();
