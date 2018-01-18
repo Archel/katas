@@ -7,6 +7,11 @@ public class CommonItem extends Item {
         super(name, sellIn, quality);
     }
 
+    public void updateSellInAndQuality() {
+        decreaseSellIn();
+        updateQuality();
+    }
+
     public void updateQuality() {
         decreaseQuality();
 

@@ -22,26 +22,22 @@ class GildedRose {
             switch (item.name) {
                 case "Aged Brie":
                     AgedBrieItem agedBrieItem = new AgedBrieItem(item.name, item.sellIn, item.quality);
-                    agedBrieItem.decreaseSellIn();
-                    agedBrieItem.updateQuality();
+                    agedBrieItem.updateSellInAndQuality();
                     items[i] = agedBrieItem;
                     break;
                 case "Backstage passes to a TAFKAL80ETC concert":
                     BackstagePassesItem backstagePassesItem = new BackstagePassesItem(item.name, item.sellIn, item.quality);
-                    backstagePassesItem.decreaseSellIn();
-                    backstagePassesItem.updateQuality();
+                    backstagePassesItem.updateSellInAndQuality();
                     items[i] = backstagePassesItem;
                     break;
                 case "Conjured Mana Cake":
                     ConjuredItem conjuredItem = new ConjuredItem(item.name, item.sellIn, item.quality);
-                    conjuredItem.decreaseSellIn();
-                    conjuredItem.updateQuality();
+                    conjuredItem.updateSellInAndQuality();
                     items[i] = conjuredItem;
                     break;
                 default:
                     CommonItem commonItem = new CommonItem(item.name, item.sellIn, item.quality);
-                    commonItem.decreaseSellIn();
-                    commonItem.updateQuality();
+                    commonItem.updateSellInAndQuality();
                     items[i] = commonItem;
                     break;
             }
