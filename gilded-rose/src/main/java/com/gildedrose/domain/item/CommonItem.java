@@ -15,7 +15,7 @@ public class CommonItem extends Item {
         }
     }
 
-    private void decreaseQuality() {
+    protected void decreaseQuality() {
         if (quality > 0) {
             quality -= 1;
         }

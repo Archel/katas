@@ -1,6 +1,7 @@
 package com.gildedrose;
 
 import com.gildedrose.domain.item.CommonItem;
+import com.gildedrose.domain.item.ConjuredItem;
 
 class GildedRose {
     Item[] items;
@@ -42,13 +43,9 @@ class GildedRose {
                     }
                     break;
                 case "Conjured Mana Cake":
-                    decreaseQuality(item);
-                    decreaseQuality(item);
-
-                    if (item.sellIn < 0) {
-                        decreaseQuality(item);
-                        decreaseQuality(item);
-                    }
+                    ConjuredItem conjuredItem = new ConjuredItem(item.name, item.sellIn, item.quality);
+                    conjuredItem.updateQuality();
+                    items[i] = conjuredItem;
                     break;
                 default:
                     CommonItem commonItem = new CommonItem(item.name, item.sellIn, item.quality);

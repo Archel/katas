@@ -69,10 +69,10 @@ public class GildedRoseShould {
                         .withSellIn(1)
                         .build();
 
-        updateQualityOf(item);
+        Item updatedItem = updateQualityOf(item);
 
-        assertThat(item.sellIn, is(1));
-        assertThat(item.quality, is(1));
+        assertThat(updatedItem.sellIn, is(1));
+        assertThat(updatedItem.quality, is(1));
     }
 
     @Test
@@ -83,9 +83,9 @@ public class GildedRoseShould {
                 .withSellIn(2)
                 .build();
 
-        updateQualityOf(item);
+        Item updatedItem = updateQualityOf(item);
 
-        assertThat(item.sellIn, is(1));
+        assertThat(updatedItem.sellIn, is(1));
     }
 
     @Test
@@ -96,9 +96,9 @@ public class GildedRoseShould {
                         .withSellIn(1)
                         .build();
 
-        updateQualityOf(item);
+        Item updatedItem = updateQualityOf(item);
 
-        assertThat(item.quality, is(50));
+        assertThat(updatedItem.quality, is(50));
 
     }
 
@@ -110,9 +110,9 @@ public class GildedRoseShould {
                         .withQuality(1)
                         .build();
 
-        updateQualityOf(item);
+        Item updatedItem = updateQualityOf(item);
 
-        assertThat(item.quality, is(2));
+        assertThat(updatedItem.quality, is(2));
     }
 
     @Test
@@ -123,9 +123,9 @@ public class GildedRoseShould {
                         .withSellIn(0)
                         .build();
 
-        updateQualityOf(item);
+        Item updatedItem = updateQualityOf(item);
 
-        assertThat(item.quality, is(3));
+        assertThat(updatedItem.quality, is(3));
     }
 
     @Test
@@ -136,9 +136,9 @@ public class GildedRoseShould {
                         .withSellIn(1)
                         .build();
 
-        updateQualityOf(item);
+        Item updatedItem = updateQualityOf(item);
 
-        assertThat(item.sellIn, is(0));
+        assertThat(updatedItem.sellIn, is(0));
     }
 
     @Test
@@ -149,9 +149,9 @@ public class GildedRoseShould {
                         .withSellIn(8)
                         .build();
 
-        updateQualityOf(item);
+        Item updatedItem = updateQualityOf(item);
 
-        assertThat(item.quality, is(50));
+        assertThat(updatedItem.quality, is(50));
     }
 
     @Test
@@ -162,9 +162,9 @@ public class GildedRoseShould {
                 .withSellIn(5)
                 .build();
 
-        updateQualityOf(item);
+        Item updatedItem = updateQualityOf(item);
 
-        assertThat(item.quality, is(3));
+        assertThat(updatedItem.quality, is(3));
     }
 
     @Test
@@ -175,9 +175,9 @@ public class GildedRoseShould {
                         .withSellIn(8)
                         .build();
 
-        updateQualityOf(item);
+        Item updatedItem = updateQualityOf(item);
 
-        assertThat(item.quality, is(10));
+        assertThat(updatedItem.quality, is(10));
     }
 
     @Test
@@ -188,9 +188,9 @@ public class GildedRoseShould {
                         .withSellIn(0)
                         .build();
 
-        updateQualityOf(item);
+        Item updatedItem = updateQualityOf(item);
 
-        assertThat(item.quality, is(0));
+        assertThat(updatedItem.quality, is(0));
     }
 
     @Test
@@ -201,9 +201,9 @@ public class GildedRoseShould {
                         .withSellIn(1)
                         .build();
 
-        updateQualityOf(item);
+        Item updatedItem = updateQualityOf(item);
 
-        assertThat(item.sellIn, is(0));
+        assertThat(updatedItem.sellIn, is(0));
     }
 
     @Test
@@ -214,9 +214,9 @@ public class GildedRoseShould {
                 .withSellIn(1)
                 .build();
 
-        updateQualityOf(item);
+        Item updatedItem = updateQualityOf(item);
 
-        assertThat(item.quality, is(0));
+        assertThat(updatedItem.quality, is(0));
     }
 
     @Test
@@ -227,9 +227,9 @@ public class GildedRoseShould {
                 .withSellIn(0)
                 .build();
 
-        updateQualityOf(item);
+        Item updatedItem = updateQualityOf(item);
 
-        assertThat(item.quality, is(1));
+        assertThat(updatedItem.quality, is(1));
     }
 
     private Item updateQualityOf(Item item) {
