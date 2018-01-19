@@ -19,11 +19,6 @@ class GildedRose {
                     agedBrieItem.updateSellInAndQuality();
                     items[i] = agedBrieItem;
                     break;
-                case "Backstage passes to a TAFKAL80ETC concert":
-                    BackstagePassesItem backstagePassesItem = new BackstagePassesItem(item.name, item.sellIn, item.quality);
-                    backstagePassesItem.updateSellInAndQuality();
-                    items[i] = backstagePassesItem;
-                    break;
                 default:
                     CommonItemFactory commonItemFactory = new CommonItemFactory();
                     CommonItem commonItem = commonItemFactory.createFrom(item);
