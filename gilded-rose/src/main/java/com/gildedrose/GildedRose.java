@@ -12,7 +12,7 @@ class GildedRose {
     public void updateQuality() {
         for (int i = 0; i < items.length; i++) {
             Item item = items[i];
-            
+
             switch (item.name) {
                 case "Aged Brie":
                     AgedBrieItem agedBrieItem = new AgedBrieItem(item.name, item.sellIn, item.quality);
@@ -35,7 +35,8 @@ class GildedRose {
                     items[i] = legendaryItem;
                     break;
                 default:
-                    CommonItem commonItem = new CommonItem(item.name, item.sellIn, item.quality);
+                    CommonItemFactory commonItemFactory = new CommonItemFactory();
+                    CommonItem commonItem = commonItemFactory.createFrom(item);
                     commonItem.updateSellInAndQuality();
                     items[i] = commonItem;
                     break;
