@@ -1,9 +1,6 @@
 package com.gildedrose;
 
-import com.gildedrose.domain.item.AgedBrieItem;
-import com.gildedrose.domain.item.BackstagePassesItem;
-import com.gildedrose.domain.item.CommonItem;
-import com.gildedrose.domain.item.ConjuredItem;
+import com.gildedrose.domain.item.*;
 
 class GildedRose {
     Item[] items;
@@ -34,6 +31,11 @@ class GildedRose {
                     ConjuredItem conjuredItem = new ConjuredItem(item.name, item.sellIn, item.quality);
                     conjuredItem.updateSellInAndQuality();
                     items[i] = conjuredItem;
+                    break;
+                case "Sulfuras, Hand of Ragnaros":
+                    LegendaryItem legendaryItem = new LegendaryItem(item.name, item.sellIn, item.quality);
+                    legendaryItem.updateSellInAndQuality();
+                    items[i] = legendaryItem;
                     break;
                 default:
                     CommonItem commonItem = new CommonItem(item.name, item.sellIn, item.quality);
