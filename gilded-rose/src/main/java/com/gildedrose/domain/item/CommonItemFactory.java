@@ -7,6 +7,7 @@ public class CommonItemFactory {
     private static final String LEGENDARY_ITEM = "Sulfuras, Hand of Ragnaros";
     private static final String CONJURED_ITEM = "Conjured Mana Cake";
     private static final String BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert";
+    private static final String AGED_BRIE = "Aged Brie";
 
     public CommonItem createFrom(Item item) {
         if (isLegendary(item)) {
@@ -21,7 +22,15 @@ public class CommonItemFactory {
             return new BackstagePassesItem(item.name, item.sellIn, item.quality);
         }
 
+        if(isAgedBrie(item)) {
+            return new AgedBrieItem(item.name, item.sellIn, item.quality);
+        }
+
         return new CommonItem(item.name, item.sellIn, item.quality);
+    }
+
+    private boolean isAgedBrie(Item item) {
+        return item.name.equals(AGED_BRIE);
     }
 
     private boolean isBackStagePasses(Item item) {

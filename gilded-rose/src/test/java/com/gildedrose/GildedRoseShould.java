@@ -1,5 +1,6 @@
 package com.gildedrose;
 
+import com.gildedrose.domain.item.CommonItemFactory;
 import org.junit.Test;
 
 import static com.gildedrose.ItemBuilder.*;
@@ -10,8 +11,8 @@ public class GildedRoseShould {
 
     @Test
     public void
-    decrease_the_sell_in_of_the_generic_item() {
-        Item item = aGenericItem()
+    decrease_the_sell_in_of_the_common_item() {
+        Item item = aCommonItem()
                 .withQuality(4)
                 .withSellIn(1)
                 .build();
@@ -23,8 +24,8 @@ public class GildedRoseShould {
 
     @Test
     public void
-    decease_the_quality_for_the_generic_items_with_quality_and_sell_in_higher_than_zero() {
-        Item item = aGenericItem()
+    decease_the_quality_for_the_common_items_with_quality_and_sell_in_higher_than_zero() {
+        Item item = aCommonItem()
                         .withQuality(1)
                         .withSellIn(1)
                         .build();
@@ -37,7 +38,7 @@ public class GildedRoseShould {
     @Test
     public void
     don_t_decrease_the_quality_for_an_items_with_quality_zero() {
-        Item item = aGenericItem()
+        Item item = aCommonItem()
                 .withQuality(0)
                 .withSellIn(1)
                 .build();
@@ -50,8 +51,8 @@ public class GildedRoseShould {
 
     @Test
     public void
-    decrease_the_quality_twice_if_the_generic_item_sell_int_is_below_than_zero() {
-        Item item = aGenericItem()
+    decrease_the_quality_twice_if_the_common_item_sell_in_is_below_than_zero() {
+        Item item = aCommonItem()
                 .withQuality(4)
                 .withSellIn(0)
                 .build();
@@ -234,7 +235,7 @@ public class GildedRoseShould {
 
     private Item updateQualityOf(Item item) {
         Item[] items = new Item[]{item};
-        GildedRose gildedRose = new GildedRose(items);
+        GildedRose gildedRose = new GildedRose(items, new CommonItemFactory());
         gildedRose.updateQuality();
 
         return items[0];

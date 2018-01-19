@@ -4,28 +4,23 @@ import com.gildedrose.domain.item.*;
 
 class GildedRose {
     Item[] items;
+    private CommonItemFactory commonItemFactory;
 
     public GildedRose(Item[] items) {
         this.items = items;
+        commonItemFactory = new CommonItemFactory();
+    }
+
+    public GildedRose(Item[] items, CommonItemFactory commonItemFactory) {
+        this.items = items;
+        this.commonItemFactory = commonItemFactory;
     }
 
     public void updateQuality() {
         for (int i = 0; i < items.length; i++) {
-            Item item = items[i];
-
-            switch (item.name) {
-                case "Aged Brie":
-                    AgedBrieItem agedBrieItem = new AgedBrieItem(item.name, item.sellIn, item.quality);
-                    agedBrieItem.updateSellInAndQuality();
-                    items[i] = agedBrieItem;
-                    break;
-                default:
-                    CommonItemFactory commonItemFactory = new CommonItemFactory();
-                    CommonItem commonItem = commonItemFactory.createFrom(item);
-                    commonItem.updateSellInAndQuality();
-                    items[i] = commonItem;
-                    break;
-            }
+            CommonItem commonItem = commonItemFactory.createFrom(items[i]);
+            commonItem.updateSellInAndQuality();
+            items[i] = commonItem;
         }
     }
 }

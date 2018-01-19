@@ -10,7 +10,7 @@ public class ItemBuilder {
         this.name = name;
     }
 
-    public static ItemBuilder aGenericItem() {
+    public static ItemBuilder aCommonItem() {
         return new ItemBuilder("generic item");
     }
 
