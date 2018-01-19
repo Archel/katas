@@ -15,24 +15,36 @@ public class CommonItem extends Item {
     public void updateQuality() {
         decreaseQuality();
 
-        if (sellIn < 0) {
+        if (isSoldOut()) {
             decreaseQuality();
         }
     }
 
+    protected boolean isSoldOut() {
+        return sellIn < 0;
+    }
+
     protected void decreaseQuality() {
-        if (quality > 0) {
+        if (hasTheMinimumQuality()) {
             quality -= 1;
         }
     }
 
+    private boolean hasTheMinimumQuality() {
+        return quality > 0;
+    }
+
     protected void increaseQuality() {
-        if (quality < 50) {
+        if (hasTheMaximumQuality()) {
             quality += 1;
         }
     }
 
-    public void decreaseSellIn() {
+    private boolean hasTheMaximumQuality() {
+        return quality < 50;
+    }
+
+    private void decreaseSellIn() {
         sellIn -= 1;
     }
 }

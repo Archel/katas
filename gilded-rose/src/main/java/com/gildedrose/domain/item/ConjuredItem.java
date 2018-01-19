@@ -10,7 +10,7 @@ public class ConjuredItem extends CommonItem {
         decreaseQuality();
         decreaseQuality();
 
-        if (sellIn < 0) {
+        if (isSoldOut()) {
             decreaseQuality();
             decreaseQuality();
         }

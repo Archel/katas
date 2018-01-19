@@ -11,7 +11,7 @@ public class ItemBuilder {
     }
 
     public static ItemBuilder aCommonItem() {
-        return new ItemBuilder("generic item");
+        return new ItemBuilder("common item");
     }
 
     public static ItemBuilder aLegendaryItem() {

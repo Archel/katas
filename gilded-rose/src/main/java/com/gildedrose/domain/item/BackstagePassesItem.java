@@ -9,17 +9,25 @@ public class BackstagePassesItem extends CommonItem {
     public void updateQuality() {
         increaseQuality();
 
-        if (sellIn < 10) {
+        if (tenDaysRemaining()) {
             increaseQuality();
         }
 
-        if (sellIn < 5) {
+        if (fiveDaysRemaining()) {
             increaseQuality();
         }
 
         if (isAfterTheConcert()) {
             dropQuality();
         }
+    }
+
+    private boolean fiveDaysRemaining() {
+        return sellIn < 5;
+    }
+
+    private boolean tenDaysRemaining() {
+        return sellIn < 10;
     }
 
     private void dropQuality() {

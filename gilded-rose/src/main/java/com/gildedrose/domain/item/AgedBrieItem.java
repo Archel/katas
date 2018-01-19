@@ -9,7 +9,7 @@ public class AgedBrieItem extends CommonItem {
     public void updateQuality() {
         increaseQuality();
 
-        if (sellIn < 0) {
+        if (isSoldOut()) {
             increaseQuality();
         }
     }
