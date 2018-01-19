@@ -24,11 +24,6 @@ class GildedRose {
                     backstagePassesItem.updateSellInAndQuality();
                     items[i] = backstagePassesItem;
                     break;
-                case "Conjured Mana Cake":
-                    ConjuredItem conjuredItem = new ConjuredItem(item.name, item.sellIn, item.quality);
-                    conjuredItem.updateSellInAndQuality();
-                    items[i] = conjuredItem;
-                    break;
                 default:
                     CommonItemFactory commonItemFactory = new CommonItemFactory();
                     CommonItem commonItem = commonItemFactory.createFrom(item);
