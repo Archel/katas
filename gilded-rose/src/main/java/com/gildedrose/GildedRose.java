@@ -29,11 +29,6 @@ class GildedRose {
                     conjuredItem.updateSellInAndQuality();
                     items[i] = conjuredItem;
                     break;
-                case "Sulfuras, Hand of Ragnaros":
-                    LegendaryItem legendaryItem = new LegendaryItem(item.name, item.sellIn, item.quality);
-                    legendaryItem.updateSellInAndQuality();
-                    items[i] = legendaryItem;
-                    break;
                 default:
                     CommonItemFactory commonItemFactory = new CommonItemFactory();
                     CommonItem commonItem = commonItemFactory.createFrom(item);
