@@ -7,12 +7,12 @@ public class ConjuredItem extends CommonItem {
 
     @Override
     public void updateQuality() {
-        decreaseQuality();
-        decreaseQuality();
+        decreaseQualityIfHigherThanMinimumQuality();
+        decreaseQualityIfHigherThanMinimumQuality();
 
         if (isSoldOut()) {
-            decreaseQuality();
-            decreaseQuality();
+            decreaseQualityIfHigherThanMinimumQuality();
+            decreaseQualityIfHigherThanMinimumQuality();
         }
     }
 }

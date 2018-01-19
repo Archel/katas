@@ -6,6 +6,6 @@ public class LegendaryItem extends CommonItem {
     }
 
     @Override
-    public void updateSellInAndQuality() {
+    public void updateProperties() {
     }
 }

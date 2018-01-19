@@ -11,16 +11,16 @@ public class CommonItem extends Item {
         super(name, sellIn, quality);
     }
 
-    public void updateSellInAndQuality() {
+    public void updateProperties() {
         decreaseSellIn();
         updateQuality();
     }
 
     public void updateQuality() {
-        decreaseQuality();
+        decreaseQualityIfHigherThanMinimumQuality();
 
         if (isSoldOut()) {
-            decreaseQuality();
+            decreaseQualityIfHigherThanMinimumQuality();
         }
     }
 
@@ -28,7 +28,7 @@ public class CommonItem extends Item {
         return sellIn < 0;
     }
 
-    protected void decreaseQuality() {
+    protected void decreaseQualityIfHigherThanMinimumQuality() {
         if (higherThanMinimumQuality()) {
             quality -= 1;
         }
@@ -38,7 +38,7 @@ public class CommonItem extends Item {
         return quality > MINIMUM_QUALITY;
     }
 
-    protected void increaseQuality() {
+    protected void increaseQualityIfLowerThanMaximumQuality() {
         if (lowerThanMaximumQuality()) {
             quality += 1;
         }

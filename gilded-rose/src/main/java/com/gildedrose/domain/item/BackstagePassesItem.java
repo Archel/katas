@@ -7,14 +7,14 @@ public class BackstagePassesItem extends CommonItem {
 
     @Override
     public void updateQuality() {
-        increaseQuality();
+        increaseQualityIfLowerThanMaximumQuality();
 
         if (tenDaysRemaining()) {
-            increaseQuality();
+            increaseQualityIfLowerThanMaximumQuality();
         }
 
         if (fiveDaysRemaining()) {
-            increaseQuality();
+            increaseQualityIfLowerThanMaximumQuality();
         }
 
         if (isAfterTheConcert()) {

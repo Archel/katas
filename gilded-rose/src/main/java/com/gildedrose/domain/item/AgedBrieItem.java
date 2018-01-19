@@ -7,10 +7,10 @@ public class AgedBrieItem extends CommonItem {
 
     @Override
     public void updateQuality() {
-        increaseQuality();
+        increaseQualityIfLowerThanMaximumQuality();
 
         if (isSoldOut()) {
-            increaseQuality();
+            increaseQualityIfLowerThanMaximumQuality();
         }
     }
 }

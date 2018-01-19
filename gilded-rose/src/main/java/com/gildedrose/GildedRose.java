@@ -19,7 +19,7 @@ class GildedRose {
     public void updateQuality() {
         for (int i = 0; i < items.length; i++) {
             CommonItem commonItem = commonItemFactory.createFrom(items[i]);
-            commonItem.updateSellInAndQuality();
+            commonItem.updateProperties();
             items[i] = commonItem;
         }
     }
